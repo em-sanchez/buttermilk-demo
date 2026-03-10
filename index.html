@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Buttermilk Handcrafted Food — Sarasota, FL</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lora:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #faf6ef;
+    --warm-white: #fff9f0;
+    --butter: #f5c842;
+    --butter-dark: #e0a800;
+    --brown: #5c4033;
+    --brown-light: #7a5c4a;
+    --brown-muted: #a07860;
+    --wood: #8B5E3C;
+    --sage: #7a8c6e;
+    --border: rgba(61,43,31,0.12);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--cream);
+    font-family: 'DM Sans', sans-serif;
+    color: var(--brown);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(250,246,239,0.95);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+  }
+
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--brown);
+    letter-spacing: -0.02em;
+  }
+
+  .nav-logo span {
+    color: var(--butter-dark);
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    color: var(--brown-muted);
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--brown); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 80px 40px 60px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: 
+      radial-gradient(ellipse at 70% 50%, rgba(245,200,66,0.15) 0%, transparent 60%),
+      radial-gradient(ellipse at 20% 80%, rgba(139,94,60,0.08) 0%, transparent 50%);
+  }
+
+  /* Grain texture */
+  .hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+
+  .hero-content {
+    max-width: 600px;
+    position: relative;
+    z-index: 1;
+    animation: fadeUp 0.9s ease both;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-eyebrow {
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--butter-dark);
+    font-weight: 500;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    display: inline-block;
+    width: 30px;
+    height: 1px;
+    background: var(--butter-dark);
+  }
+
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3.5rem, 7vw, 6.5rem);
+    line-height: 1.05;
+    font-weight: 700;
+    color: var(--brown);
+    margin-bottom: 24px;
+    letter-spacing: -0.02em;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    color: var(--butter-dark);
+  }
+
+  .hero-desc {
+    font-family: 'Lora', serif;
+    font-size: 1.1rem;
+    color: var(--brown-muted);
+    line-height: 1.7;
+    margin-bottom: 40px;
+    max-width: 460px;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .btn-primary {
+    background: var(--brown);
+    color: var(--cream);
+    padding: 14px 32px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    transition: background 0.2s, transform 0.2s;
+  }
+
+  .btn-primary:hover {
+    background: var(--brown-light);
+    transform: translateY(-1px);
+  }
+
+  .btn-secondary {
+    color: var(--brown);
+    padding: 14px 32px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    border: 1.5px solid var(--border);
+    transition: border-color 0.2s, transform 0.2s;
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--brown);
+    transform: translateY(-1px);
+  }
+
+
+
+  /* HOURS STRIP */
+  .hours-strip {
+    background: var(--brown);
+    color: var(--cream);
+    padding: 16px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+
+  .hours-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+  }
+
+  .hours-item span:first-child {
+    color: var(--butter);
+    font-weight: 500;
+  }
+
+  /* SECTION SHARED */
+  section { padding: 100px 40px; }
+
+  .section-eyebrow {
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--butter-dark);
+    font-weight: 500;
+    margin-bottom: 16px;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 700;
+    color: var(--brown);
+    margin-bottom: 20px;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+  }
+
+  /* MENU */
+  #menu { background: var(--warm-white); }
+
+  .menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    margin-top: 48px;
+  }
+
+  .menu-category {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 32px;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .menu-category:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(61,43,31,0.1);
+  }
+
+  .menu-category-icon {
+    font-size: 2rem;
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  .menu-category-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--brown);
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .menu-items { list-style: none; }
+
+  .menu-items li {
+    font-size: 0.9rem;
+    color: var(--brown-muted);
+    padding: 6px 0;
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    line-height: 1.4;
+  }
+
+  .menu-items li::before {
+    content: '—';
+    color: var(--butter-dark);
+    font-size: 0.7rem;
+    flex-shrink: 0;
+  }
+
+  .menu-highlight {
+    background: var(--butter);
+    color: var(--brown);
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 2px 6px;
+    border-radius: 2px;
+    margin-left: 4px;
+  }
+
+  /* ABOUT */
+  #about {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .about-visual {
+    position: relative;
+  }
+
+  .about-card {
+    background: var(--brown);
+    color: var(--cream);
+    border-radius: 8px;
+    padding: 48px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .about-card::before {
+    content: '"';
+    position: absolute;
+    top: -20px;
+    left: 30px;
+    font-family: 'Playfair Display', serif;
+    font-size: 12rem;
+    color: rgba(245,200,66,0.15);
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .about-card blockquote {
+    font-family: 'Lora', serif;
+    font-size: 1.15rem;
+    font-style: italic;
+    line-height: 1.7;
+    color: rgba(250,246,239,0.9);
+    position: relative;
+    z-index: 1;
+    margin-bottom: 20px;
+  }
+
+  .about-card cite {
+    font-size: 0.8rem;
+    color: var(--butter);
+    font-style: normal;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+
+
+  .about-text p {
+    font-family: 'Lora', serif;
+    font-size: 1rem;
+    color: var(--brown-muted);
+    line-height: 1.8;
+    margin-bottom: 20px;
+  }
+
+  /* GALLERY */
+  #gallery { background: var(--warm-white); }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+    gap: 16px;
+    margin-top: 48px;
+  }
+
+  .gallery-item {
+    border-radius: 6px;
+    overflow: hidden;
+    background: var(--cream);
+    border: 1px solid var(--border);
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+    transition: transform 0.3s;
+    position: relative;
+  }
+
+  .gallery-item:hover { transform: scale(1.02); }
+
+  .gallery-item:first-child {
+    grid-column: span 2;
+    aspect-ratio: 2/1;
+  }
+
+  .gallery-item-label {
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
+    background: rgba(61,43,31,0.85);
+    color: var(--cream);
+    font-size: 0.75rem;
+    padding: 4px 10px;
+    border-radius: 3px;
+    letter-spacing: 0.05em;
+  }
+
+  /* CONTACT */
+  #contact {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  .contact-info { }
+
+  .contact-detail {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    margin-bottom: 28px;
+    padding-bottom: 28px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .contact-detail:last-child { border-bottom: none; }
+
+  .contact-icon {
+    width: 40px;
+    height: 40px;
+    background: var(--butter);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+  }
+
+  .contact-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--brown-muted);
+    margin-bottom: 4px;
+  }
+
+  .contact-value {
+    font-family: 'Lora', serif;
+    font-size: 1rem;
+    color: var(--brown);
+    line-height: 1.5;
+  }
+
+  .contact-map {
+    background: var(--brown);
+    border-radius: 8px;
+    padding: 48px;
+    color: var(--cream);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 300px;
+    gap: 16px;
+  }
+
+  .contact-map .map-emoji { font-size: 3rem; }
+
+  .contact-map p {
+    font-family: 'Lora', serif;
+    font-style: italic;
+    color: rgba(250,246,239,0.7);
+    font-size: 0.95rem;
+  }
+
+  .contact-map a {
+    background: var(--butter);
+    color: var(--brown);
+    padding: 12px 28px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    margin-top: 8px;
+    transition: opacity 0.2s;
+  }
+
+  .contact-map a:hover { opacity: 0.85; }
+
+  /* FOOTER */
+  footer {
+    background: var(--brown);
+    color: rgba(250,246,239,0.6);
+    padding: 40px;
+    text-align: center;
+    font-size: 0.8rem;
+  }
+
+  footer .footer-logo {
+    font-family: 'Playfair Display', serif;
+    color: var(--cream);
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+  }
+
+  /* ===== CHATBOT ===== */
+  #chat-bubble {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    z-index: 1000;
+  }
+
+  #chat-toggle {
+    width: 64px;
+    height: 64px;
+    background: var(--wood);
+    border: 3px solid var(--butter);
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.7rem;
+    box-shadow: 0 6px 24px rgba(61,43,31,0.4);
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #chat-toggle:hover {
+    transform: scale(1.08);
+    box-shadow: 0 10px 32px rgba(61,43,31,0.5);
+  }
+
+  #chat-window {
+    position: absolute;
+    bottom: 80px;
+    right: 0;
+    width: 350px;
+    height: 500px;
+    background: #fdf6e3;
+    border-radius: 4px;
+    box-shadow: 0 20px 60px rgba(61,43,31,0.25), inset 0 0 0 1px rgba(61,43,31,0.1);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border: 2px solid var(--wood);
+    transform: scale(0.9) translateY(20px);
+    opacity: 0;
+    pointer-events: none;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+    /* Subtle paper texture */
+    background-image: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 27px,
+      rgba(139,94,60,0.06) 27px,
+      rgba(139,94,60,0.06) 28px
+    );
+  }
+
+  #chat-window.open {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .chat-header {
+    background: var(--butter);
+    color: var(--brown);
+    padding: 14px 18px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+    border-bottom: 3px solid var(--butter);
+  }
+
+  .chat-avatar {
+    width: 40px;
+    height: 40px;
+    background: var(--brown);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    flex-shrink: 0;
+    border: 2px solid rgba(255,255,255,0.3);
+  }
+
+  .chat-header-info .chat-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+  }
+
+  .chat-header-info .chat-status {
+    font-size: 0.7rem;
+    color: var(--brown);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-style: italic;
+    font-family: 'Lora', serif;
+  }
+
+  .chat-header-info .chat-status::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    background: #4ade80;
+    border-radius: 50%;
+    display: inline-block;
+    flex-shrink: 0;
+  }
+
+  .chat-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background: transparent;
+  }
+
+  .chat-messages::-webkit-scrollbar { width: 4px; }
+  .chat-messages::-webkit-scrollbar-track { background: transparent; }
+  .chat-messages::-webkit-scrollbar-thumb { background: rgba(139,94,60,0.2); border-radius: 2px; }
+
+  .msg {
+    max-width: 85%;
+    padding: 10px 14px;
+    border-radius: 3px;
+    font-size: 0.875rem;
+    line-height: 1.55;
+    animation: msgIn 0.2s ease;
+  }
+
+  @keyframes msgIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .msg.bot {
+    background: #fff9ee;
+    color: var(--brown);
+    border: 1px solid rgba(139,94,60,0.2);
+    border-left: 3px solid var(--butter-dark);
+    align-self: flex-start;
+    font-family: 'Lora', serif;
+    font-size: 0.875rem;
+    box-shadow: 1px 2px 6px rgba(61,43,31,0.06);
+  }
+
+  .msg.user {
+    background: var(--wood);
+    color: #fdf6e3;
+    border-radius: 3px;
+    align-self: flex-end;
+    font-family: 'DM Sans', sans-serif;
+    box-shadow: 1px 2px 6px rgba(61,43,31,0.15);
+  }
+
+  .msg-time {
+    font-size: 0.62rem;
+    color: var(--brown-muted);
+    margin-top: 2px;
+    text-align: right;
+    font-style: italic;
+  }
+
+  .msg.bot + .msg-time { text-align: left; }
+
+  .chat-input-row {
+    display: flex;
+    gap: 8px;
+    padding: 12px 14px;
+    background: var(--butter);
+    border-top: 2px solid var(--butter);
+    flex-shrink: 0;
+  }
+
+  #chat-input {
+    flex: 1;
+    border: 1.5px solid rgba(61,43,31,0.2);
+    border-radius: 3px;
+    padding: 9px 14px;
+    font-size: 0.85rem;
+    font-family: 'Lora', serif;
+    font-style: italic;
+    background: var(--warm-white);
+    color: var(--brown);
+    outline: none;
+    transition: border-color 0.2s, background 0.2s;
+  }
+
+  #chat-input:focus {
+    border-color: var(--butter);
+    background: rgba(255,255,255,0.18);
+  }
+
+  #chat-input::placeholder { color: var(--brown-muted); }
+
+  #chat-send {
+    width: 38px;
+    height: 38px;
+    background: var(--brown);
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    color: var(--cream);
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.2s;
+    flex-shrink: 0;
+    font-weight: 700;
+  }
+
+  #chat-send:hover { opacity: 0.85; }
+
+  .typing {
+    display: flex;
+    gap: 4px;
+    padding: 10px 14px;
+    background: #fff9ee;
+    border: 1px solid rgba(139,94,60,0.2);
+    border-left: 3px solid var(--butter-dark);
+    border-radius: 3px;
+    align-self: flex-start;
+    width: fit-content;
+  }
+
+  .typing span {
+    width: 6px;
+    height: 6px;
+    background: var(--brown-muted);
+    border-radius: 50%;
+    animation: bounce 1.2s infinite;
+  }
+
+  .typing span:nth-child(2) { animation-delay: 0.2s; }
+  .typing span:nth-child(3) { animation-delay: 0.4s; }
+
+  @keyframes bounce {
+    0%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-6px); }
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    nav { padding: 0 20px; }
+    .nav-links { display: none; }
+    .hero { padding: 80px 20px 60px; }
+    .hero-badge { display: none; }
+    section { padding: 60px 20px; }
+    #about, #contact { grid-template-columns: 1fr; gap: 40px; }
+    .gallery-grid { grid-template-columns: repeat(2,1fr); }
+    .gallery-item:first-child { grid-column: span 2; }
+    #chat-window { width: 320px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Butter<span>milk</span></div>
+  <ul class="nav-links">
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#contact">Visit Us</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner" style="display:flex;align-items:center;gap:160px;width:100%;max-width:1200px;">
+  <div class="hero-content" style="max-width:520px;">
+    <div class="hero-eyebrow">Sarasota, Florida</div>
+    <h1 class="hero-title">Handcrafted<br>with <em>love</em><br>& butter.</h1>
+    <p class="hero-desc">A little bakery that makes and shares treats. Fresh biscuits, homemade pastries, and great coffee — made the right way, every morning.</p>
+    <div class="hero-actions">
+      <a href="#menu" class="btn-primary">See the Menu</a>
+      <a href="#contact" class="btn-secondary">Find Us</a>
+    </div>
+  </div>
+  <div style="flex:1;min-width:380px;max-width:560px;border-radius:12px;overflow:hidden;box-shadow:0 20px 60px rgba(61,43,31,0.15);">
+    <img src="https://images.unsplash.com/photo-1589985270826-4b7bb135bc9d?w=800&q=80" alt="Fresh butter" style="width:100%;height:100%;object-fit:cover;display:block;min-height:520px;" />
+  </div>
+  </div>
+
+</section>
+
+<!-- HOURS STRIP -->
+<div class="hours-strip">
+  <div class="hours-item">
+    <span>Tue – Fri</span>
+    <span>7:00 AM – 1:00 PM</span>
+  </div>
+  <div class="hours-item">
+    <span>Saturday</span>
+    <span>8:00 AM – 1:00 PM</span>
+  </div>
+  <div class="hours-item">
+    <span>Sun & Mon</span>
+    <span>Closed</span>
+  </div>
+</div>
+
+<!-- MENU -->
+<section id="menu">
+  <div class="section-eyebrow">What we make</div>
+  <h2 class="section-title">Fresh every morning.</h2>
+  <div class="menu-grid">
+    <div class="menu-category">
+      <span class="menu-category-icon">🥐</span>
+      <div class="menu-category-name">Biscuits & Sandwiches</div>
+      <ul class="menu-items">
+        <li>Classic Buttermilk Biscuit <span class="menu-highlight">Fan Fave</span></li>
+        <li>Pimento Cheese Biscuit Sandwich</li>
+        <li>Baked Egg & Bacon Biscuit</li>
+        <li>The Nasty — Fried Chicken Biscuit <span class="menu-highlight">Must Try</span></li>
+        <li>Avocado Toast</li>
+      </ul>
+    </div>
+    <div class="menu-category">
+      <span class="menu-category-icon">🍰</span>
+      <div class="menu-category-name">Treats & Pastries</div>
+      <ul class="menu-items">
+        <li>Cinnamon Rolls <span class="menu-highlight">Massive</span></li>
+        <li>Oatmeal Pie</li>
+        <li>Cream Pie</li>
+        <li>Seasonal Cookies</li>
+        <li>Daily Baked Specials</li>
+      </ul>
+    </div>
+    <div class="menu-category">
+      <span class="menu-category-icon">☕</span>
+      <div class="menu-category-name">Coffee & Drinks</div>
+      <ul class="menu-items">
+        <li>Drip Coffee (Perq Roasters)</li>
+        <li>Cold Brew</li>
+        <li>Lattes & Cappuccinos</li>
+        <li>Chai Tea</li>
+        <li>Iced Coffee</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-visual">
+    <div class="about-card">
+      <blockquote>"We're a little bakery that makes and shares treats. Everything is made by hand, with care, every single morning."</blockquote>
+      <cite>— Jamie & Kathy Otto, Owners</cite>
+    </div>
+
+  </div>
+  <div class="about-text">
+    <div class="section-eyebrow">Our story</div>
+    <h2 class="section-title">Made by hand,<br>with heart.</h2>
+    <p>Jamie and Kathy Otto opened Buttermilk with a simple idea — make really good food, from scratch, every day. Jamie even built the interior by hand, giving the space that warm, lived-in feel the moment you walk in.</p>
+    <p>Everything on the menu is handcrafted daily. The biscuits are legendary. The cinnamon rolls are the size of your head. And the coffee comes from Sarasota's own Perq Roasters.</p>
+    <p>We're tucked away on Palmer Blvd, open Tuesday through Saturday mornings. Come early — things sell out.</p>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="section-eyebrow">From our kitchen</div>
+  <h2 class="section-title">A little taste.</h2>
+  <div class="gallery-grid">
+    <div class="gallery-item" style="background:#f5e6c8; font-size:5rem;">🥐<span class="gallery-item-label">Fresh Biscuits</span></div>
+    <div class="gallery-item" style="background:#fdf0d5;">☕<span class="gallery-item-label">Morning Coffee</span></div>
+    <div class="gallery-item" style="background:#fce8d5;">🍰<span class="gallery-item-label">Cinnamon Rolls</span></div>
+    <div class="gallery-item" style="background:#f0ead8;">🍳<span class="gallery-item-label">Biscuit Sandwich</span></div>
+    <div class="gallery-item" style="background:#e8f0e0;">🥑<span class="gallery-item-label">Avocado Toast</span></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-info">
+    <div class="section-eyebrow">Come find us</div>
+    <h2 class="section-title">We'd love to<br>see you.</h2>
+    <div class="contact-detail">
+      <div class="contact-icon">📍</div>
+      <div>
+        <div class="contact-label">Address</div>
+        <div class="contact-value">5520 Palmer Blvd<br>Sarasota, FL 34232</div>
+      </div>
+    </div>
+    <div class="contact-detail">
+      <div class="contact-icon">🕐</div>
+      <div>
+        <div class="contact-label">Hours</div>
+        <div class="contact-value">Tue–Fri: 7:00 AM – 1:00 PM<br>Saturday: 8:00 AM – 1:00 PM<br>Sun & Mon: Closed</div>
+      </div>
+    </div>
+    <div class="contact-detail">
+      <div class="contact-icon">📞</div>
+      <div>
+        <div class="contact-label">Phone</div>
+        <div class="contact-value">(941) 487-8949</div>
+      </div>
+    </div>
+    <div class="contact-detail">
+      <div class="contact-icon">📸</div>
+      <div>
+        <div class="contact-label">Instagram</div>
+        <div class="contact-value">@buttermilkhandcraftedfood</div>
+      </div>
+    </div>
+  </div>
+  <div class="contact-map">
+    <span class="map-emoji">🗺️</span>
+    <h3 style="font-family:'Playfair Display',serif; font-size:1.3rem; color:var(--cream);">5520 Palmer Blvd</h3>
+    <p>Tucked away in Sarasota — worth every turn.</p>
+    <a href="https://maps.google.com/?q=5520+Palmer+Blvd+Sarasota+FL" target="_blank">Get Directions →</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Buttermilk Handcrafted Food</div>
+  <p>Sarasota, Florida</p>
+</footer>
+
+<!-- CHATBOT -->
+<div id="chat-bubble">
+  <div id="chat-window">
+    <div class="chat-header">
+      <div class="chat-avatar">🧈</div>
+      <div class="chat-header-info">
+        <div class="chat-name">Buttermilk Assistant</div>
+        <div class="chat-status">Online — here to help</div>
+      </div>
+    </div>
+    <div class="chat-messages" id="chat-messages"></div>
+
+    <div class="chat-input-row">
+      <input type="text" id="chat-input" placeholder="Ask about our menu, hours..." />
+      <button id="chat-send">➤</button>
+    </div>
+  </div>
+  <button id="chat-toggle" onclick="toggleChat()">🧈</button>
+</div>
+
+<script>
+  const CAFE_CONTEXT = `You are the warm, homey assistant for Buttermilk Handcrafted Food, a beloved little bakery in Sarasota, Florida run by Jamie and Kathy Otto. Talk like a friendly Southern neighbor who genuinely loves this place — warm, welcoming, a little folksy. Use casual language. Recommend things enthusiastically. Make people feel like they're already sitting at the table. 
+
+About Buttermilk:
+- Address: 5520 Palmer Blvd, Sarasota, FL 34232
+- Phone: (941) 487-8949
+- Instagram: @buttermilkhandcraftedfood
+- Hours: Tuesday–Friday 7:00 AM – 1:00 PM, Saturday 8:00 AM – 1:00 PM, Sunday & Monday CLOSED
+- Vibe: Warm, cozy, rustic farmhouse. Everything is handmade daily. Jamie even built the interior by hand.
+
+Menu:
+BISCUITS & SANDWICHES: Classic Buttermilk Biscuit (fan favorite), Pimento Cheese Biscuit Sandwich, Baked Egg & Bacon Biscuit, "The Nasty" Fried Chicken Biscuit (must try!), Avocado Toast
+TREATS & PASTRIES: Cinnamon Rolls (massive, legendary), Oatmeal Pie, Cream Pie, Seasonal Cookies, Daily Baked Specials
+COFFEE & DRINKS: Drip Coffee from Perq Roasters (local Sarasota roaster), Cold Brew, Lattes, Cappuccinos, Chai Tea, Iced Coffee
+
+Tips: Come early — things sell out! The cinnamon rolls are huge. The Nasty biscuit sandwich is a crowd favorite. Coffee is sourced from Sarasota's own Perq Roasters.
+
+Be warm, friendly, and conversational — like a friendly neighbor who loves this bakery. Keep responses short and helpful. Never use markdown formatting like asterisks or bullet symbols in your responses.`;
+
+  let conversationHistory = [];
+  let chatOpen = false;
+
+  function toggleChat() {
+    chatOpen = !chatOpen;
+    const win = document.getElementById('chat-window');
+    const toggle = document.getElementById('chat-toggle');
+    win.classList.toggle('open', chatOpen);
+    toggle.textContent = chatOpen ? '✕' : '🧈';
+    if (chatOpen && conversationHistory.length === 0) {
+      setTimeout(() => addMessage('bot', "Well hey there, welcome! You've found the right place. Pull up a chair and ask me anything — menu, hours, where to find us. We're happy you're here! 🧈"), 300);
+    }
+  }
+
+  function addMessage(role, text) {
+    const msgs = document.getElementById('chat-messages');
+    const now = new Date().toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'});
+    const div = document.createElement('div');
+    div.className = `msg ${role}`;
+    div.textContent = text;
+    msgs.appendChild(div);
+    const time = document.createElement('div');
+    time.className = 'msg-time';
+    time.textContent = now;
+    msgs.appendChild(time);
+    msgs.scrollTop = msgs.scrollHeight;
+  }
+
+  function showTyping() {
+    const msgs = document.getElementById('chat-messages');
+    const div = document.createElement('div');
+    div.className = 'typing';
+    div.id = 'typing-indicator';
+    div.innerHTML = '<span></span><span></span><span></span>';
+    msgs.appendChild(div);
+    msgs.scrollTop = msgs.scrollHeight;
+  }
+
+  function removeTyping() {
+    const t = document.getElementById('typing-indicator');
+    if (t) t.remove();
+  }
+
+  async function sendMessage(text) {
+    if (!text.trim()) return;
+    addMessage('user', text);
+    conversationHistory.push({ role: 'user', content: text });
+    document.getElementById('chat-input').value = '';
+    showTyping();
+
+    try {
+      const response = await fetch('/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          model: 'claude-sonnet-4-20250514',
+          max_tokens: 1000,
+          system: CAFE_CONTEXT,
+          messages: conversationHistory
+        })
+      });
+
+      const data = await response.json();
+      let reply = data.content?.[0]?.text || "Sorry, give me just a sec and try again!";
+      reply = reply.replace(/\*\*(.*?)\*\*/g, '$1').replace(/\*(.*?)\*/g, '$1');
+      removeTyping();
+      conversationHistory.push({ role: 'assistant', content: reply });
+      addMessage('bot', reply);
+    } catch (err) {
+      removeTyping();
+      addMessage('bot', "Oops, something went wrong! Try again in a sec ☕");
+    }
+  }
+
+  function quickAsk(text) { sendMessage(text); }
+
+  document.getElementById('chat-send').addEventListener('click', () => {
+    sendMessage(document.getElementById('chat-input').value);
+  });
+
+  document.getElementById('chat-input').addEventListener('keypress', e => {
+    if (e.key === 'Enter') sendMessage(e.target.value);
+  });
+</script>
+</body>
+</html>
